@@ -1,14 +1,14 @@
 //jshint esversion: 6
 
 const pictures = [
-  {title: 'Stone fern', src: 'assets/PA112754_1.jpg', description: 'Some nice description'},
-  {title: 'High castle', src: 'assets/PA112556_1.jpg', description: 'Some nice description'},
-  {title: 'Before sunrise', src: 'assets/PA122941_1.jpg', description: 'Some nice description'},
-  {title: '50 shades of grey', src: 'assets/PA112770_1.jpg', description: 'Some nice description'},
-  {title: 'Over the trees', src: 'assets/PA112787_1.jpg', description: 'Some nice description'},
+  {title: 'Stone fern', src: 'assets/PA112754_1.jpg', description: 'CaptionBot: I think it\'s a close up of a green plant.'},
+  {title: 'High castle', src: 'assets/PA112556_1.jpg', description: 'CaptionBot: I think it\'s a castle on top of a grass covered field.'},
+  {title: 'Before sunrise', src: 'assets/PA122941_1.jpg', description: 'CaptionBot: I think it\'s a view of a large mountain in the background.'},
+  {title: '50 shades of grey', src: 'assets/PA112770_1.jpg', description: 'CaptionBot: I think it\'s a view of a mountain.'},
+  {title: 'Over the trees', src: 'assets/PA112787_1.jpg', description: 'CaptionBot: I think it\'s a group of people in a forest.'},
   {title: 'Look there', src: 'assets/PA112824_1.jpg', description: 'CaptionBot: "I think it\'s a man standing in front of a mountain."'},
-  {title: 'Sunrise', src: 'assets/PA122918_1.jpg', description: 'Some nice description'},
-  {title: 'Water fall', src: 'assets/PA112411_1.jpg', description: 'Some nice description'},
+  {title: 'Sunrise', src: 'assets/PA122918_1.jpg', description: 'CaptionBot: I think it\'s a large body of water with a mountain in the background.'},
+  {title: 'Water fall', src: 'assets/PA112411_1.jpg', description: 'CaptionBot: I think it\'s a large waterfall over a body of water.'},
 ];
 
 const body = document.getElementsByTagName('body')[0];
