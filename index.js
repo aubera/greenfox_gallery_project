@@ -19,6 +19,8 @@ const thumbnails = document.querySelector('.thumbnails');
 var rightButton = document.querySelector('.right');
 var leftButton = document.querySelector('.left');
 var actualImage = 0;
+var xDown = null;
+var yDown = null;
 
 initPage(actualImage);
 
@@ -33,6 +35,9 @@ leftButton.onclick = function() {
 rightButton.onclick = function() {
   nextImage();
 };
+
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchmove', handleTouchMove, false);
 
 function setMainImage(index) {
   mainImage.setAttribute('style', 'background-image: url(' + pictures[index].src + ')');
@@ -71,12 +76,6 @@ function prevImage(){
   actualImage > 0 ? setMainImage(actualImage - 1) : setMainImage(pictures.length - 1);
 }
 
-document.addEventListener('touchstart', handleTouchStart, false);
-document.addEventListener('touchmove', handleTouchMove, false);
-
-var xDown = null;
-var yDown = null;
-
 function getTouches(evt) {
   return evt.touches || // browser API
     evt.originalEvent.touches; // jQuery
@@ -92,28 +91,17 @@ function handleTouchMove(evt) {
   if (!xDown || !yDown) {
     return;
   }
-
   var xUp = evt.touches[0].clientX;
   var yUp = evt.touches[0].clientY;
-
   var xDiff = xDown - xUp;
   var yDiff = yDown - yUp;
-
   if (Math.abs(xDiff) > Math.abs(yDiff)) {
-    /*most significant*/
     if (xDiff > 0) {
       nextImage();
     } else {
       prevImage();
     }
-  } else {
-    if (yDiff > 0) {
-      /* up swipe */
-    } else {
-      /* down swipe */
-    }
   }
-  /* reset values */
   xDown = null;
   yDown = null;
 }
