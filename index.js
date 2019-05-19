@@ -34,6 +34,12 @@ rightButton.onclick = function() {
   nextImage();
 };
 
+mainImage.addEventListener('touchstart', handleTouchStart, false);
+mainImage.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;
+var yDown = null;
+
 function setMainImage(index) {
   mainImage.setAttribute('style', 'background-image: url(' + pictures[index].src + ')');
   mainImageTitle.innerHTML = pictures[index].title;
@@ -69,4 +75,28 @@ function nextImage(){
 
 function prevImage(){
   actualImage > 0 ? setMainImage(actualImage - 1) : setMainImage(pictures.length - 1);
+}
+
+function handleTouchStart(evt) {
+    xDown = evt.originalEvent.touches[0].clientX;
+    yDown = evt.originalEvent.touches[0].clientY;
+}
+
+function handleTouchMove(evt) {
+  if (!xDown || !yDown) {
+    return;
+  }
+  var xUp = evt.originalEvent.touches[0].clientX;
+  var yUp = evt.originalEvent.touches[0].clientY;
+  var xDiff = xDown - xUp;
+  var yDiff = yDown - yUp;
+  if (Math.abs(xDiff) > Math.abs(yDiff)) {
+    if (xDiff > 0) {
+      nextImage();
+    } else {
+      prevImage();
+    }
+  }
+  xDown = null;
+  yDown = null;
 }
