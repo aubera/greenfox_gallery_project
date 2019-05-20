@@ -4,9 +4,9 @@ body {
 
 .wrapper {
   background-image: linear-gradient(to right, rgba(150, 150, 150, 1), rgba(187, 187, 187, 0.4), rgba(150, 150, 150, 1));
-  height: 99.99vh;
+  height: 100vh;
   overflow: hidden;
-  width: 99.99vw;
+  width: 100vw;
 }
 
 .container {
@@ -87,7 +87,11 @@ p {
 }
 
 .element {
+  position: relative;
+  height: 100%;
   margin: 2%;
+  max-height: 50px;
+  width: 100%;
 }
 
 .thumb {
@@ -98,7 +102,7 @@ p {
   width: 50px;
 }
 
-.thumb:hover {
+.element:hover .thumb {
   border-color: #eaf5ff;
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
@@ -106,4 +110,32 @@ p {
 .selected {
   border-color: #eaf5ff;
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.overlay {
+  position: absolute;
+  bottom: -5px;
+  left: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: calc(100% - 10px);
+  height: 0;
+  transition: .2s ease;
+}
+
+.element:hover .overlay {
+  height: 100%;
+  cursor: pointer;
+}
+
+.text {
+  color: #FFF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  left: 50%;
+  padding: 5%;
+  position: relative;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
