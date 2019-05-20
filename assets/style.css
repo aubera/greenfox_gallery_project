@@ -29,6 +29,7 @@ body {
   justify-content: space-between;
   margin-bottom: 30px;
   overflow: hidden;
+  transition: background 1s;
   width: 80%;
 }
 
